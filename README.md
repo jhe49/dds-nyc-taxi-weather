@@ -97,8 +97,21 @@ mkdir -p data/raw
 cd data/raw
 curl -O https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
 cd ../..
+```
 
-python scripts/load_taxi_data.py
+## MongoDB Atlas Setup
+
+- Successfully connected to MongoDB Atlas cluster
+- Loaded:
+  - NYC Taxi trips data
+  - NYC Central Park weather data (filtered for 2022 only)
+- Weather collection: `weather_daily` (363 records)
+- Taxi collection: `taxi_trips`
+
+Data ingestion handled via:
+- `scripts/load_taxi_data.py`
+- `scripts/load_weather_data.py`
+
 
 
 
