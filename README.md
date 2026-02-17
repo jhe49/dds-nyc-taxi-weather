@@ -53,7 +53,27 @@ To build a distributed data system that:
 
 ## 📁 Project Structure
 
-<pre> ```bash dds-nyc-taxi-weather/ │ ├── config/ # Configuration files (Mongo URI, settings) │ ├── data/ │ ├── raw/ # Raw downloaded datasets (parquet, csv) │ └── processed/ # Cleaned/processed datasets (future use) │ ├── notebooks/ # Exploratory analysis & Spark SQL notebooks │ ├── scripts/ │ ├── load_taxi_data.py # Loads taxi parquet into MongoDB Atlas │ ├── load_weather_data.py # Loads filtered weather data (2022 only) │ └── test_connection.py # Tests MongoDB Atlas connectivity │ ├── README.md ├── LICENSE └── requirements.txt # Python ``` </pre> 
+```bash
+dds-nyc-taxi-weather/
+│
+├── config/                     # Configuration files (Mongo URI, settings)
+│
+├── data/
+│   ├── raw/                    # Raw downloaded datasets (parquet, csv)
+│   └── processed/              # Cleaned/processed datasets (future use)
+│
+├── notebooks/                  # Exploratory analysis & Spark SQL notebooks
+│
+├── scripts/
+│   ├── load_taxi_data.py       # Loads taxi parquet into MongoDB Atlas
+│   ├── load_weather_data.py    # Loads filtered weather data (2022 only)
+│   └── test_connection.py      # (local only, not committed)
+│
+├── README.md
+├── LICENSE
+└── requirements.txt            # Python
+```
+
 
 ## MongoDB Atlas Setup + Local Ingestion (Feb 16)
 
