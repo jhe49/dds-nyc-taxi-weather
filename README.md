@@ -111,6 +111,10 @@ cd ../..
 Data ingestion handled via:
 - `scripts/load_taxi_data.py`
 - `scripts/load_weather_data.py`
+  
+### Atlas Screenshot
+
+![Atlas Collections](docs/atlas_collections.png)
 
 
 
