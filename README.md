@@ -53,4 +53,53 @@ To build a distributed data system that:
 
 ## 📁 Project Structure
 
+dds-nyc-taxi-weather/
+│
+├── config/                  # Configuration files (Mongo URI, settings)
+│
+├── data/
+│   ├── raw/                 # Raw downloaded datasets (parquet, csv)
+│   └── processed/           # Cleaned/processed datasets (future use)
+│
+├── notebooks/               # Exploratory analysis & Spark SQL notebooks
+│
+├── scripts/
+│   ├── load_taxi_data.py    # Loads taxi parquet into MongoDB Atlas
+│   ├── load_weather_data.py # Loads filtered weather data (2022 only)
+│   └── test_connection.py   # Tests MongoDB Atlas connectivity
+│
+├── README.md
+├── LICENSE
+└── requirements.txt         # Python dependencies (recommended)
+
+## MongoDB Atlas Setup + Local Ingestion (Feb 16)
+
+### 1) MongoDB Atlas
+- Created Atlas cluster: `dds-nyc-taxi-weather-2022`
+- Database created: `dds_nyc_taxi_weather`
+- Collections:
+  - `taxi_trips` (target for yellow taxi data)
+  - `test_collection` (used to validate connectivity)
+
+Security notes:
+- IP Access List: added local IP (Atlas UI “Network Access”)
+- Database user created: `dds_admin` (password stored locally — do not commit)
+
+### 2) Local repo + environment
+```bash
+git clone <repo-url>
+cd dds-nyc-taxi-weather
+python3 -m venv venv_dds_mongodb_2022
+source venv_dds_mongodb_2022/bin/activate
+pip install pymongo pandas pyarrow tqdm
+
+mkdir -p data/raw
+cd data/raw
+curl -O https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
+cd ../..
+
+python scripts/load_taxi_data.py
+
+
+
 
