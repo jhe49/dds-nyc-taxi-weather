@@ -70,7 +70,7 @@ dds-nyc-taxi-weather/
 │
 ├── README.md
 ├── LICENSE
-└── requirements.txt         # Python dependencies (recommended)
+└── requirements.txt         # Python 
 
 ## MongoDB Atlas Setup + Local Ingestion (Feb 16)
 
@@ -83,7 +83,9 @@ dds-nyc-taxi-weather/
 
 Security notes:
 - IP Access List: added local IP (Atlas UI “Network Access”)
-- Database user created: `dds_admin` (password stored locally — do not commit)
+- Create your own MongoDB Atlas cluster and set:
+  export MONGO_URI="mongodb+srv://<user>:<pass>@<cluster>/"
+- Database user created in Atlas (credentials stored locally via environment variables).
 
 ### 2) Local repo + environment
 ```bash
